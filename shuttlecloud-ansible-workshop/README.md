@@ -176,6 +176,45 @@ geerlinguy.redis
 * `ansible-vault view foo.yml`
 
 
+##Third part of the workshop
+git@github.com:mmoya/ansible-201.git
+`go get golang.org/x/tools/cmd/present`
+`present`
+`go tool present` >> para ejecutar la presentación.
+https://github.com/segfault88/go-talk
+
+###git-crypt
+Alternativa a Ansible Vault.
+git-crypt keygen "$KEYS_DIR/repo.key"
+
+###Dynamic inventories
+http://docs.ansible.com/ansible/developing_inventory.html
+https://docker-py.readthedocs.org/en/latest/api/
+ansible-201/slides/dyninv
+
+Create dyninv.sh >>> echo "{}"
+`ansible -i dyninv.sh --list all`
+
+`ansible -i ansible-201/slides/dyninv/minimal02.sh --list all`
+
+Under mmoya/
+$ mkvirtualenv -p python2.7 mmoya
+$ virtualenv mmoya
+$ pip install ansible docker-py ipython
+
+$>docker-machine env default
+$>eval "$(docker-machine env default)"
+$>python nombre_del_fichero.py
+
+$ ansible/ansible-201/slides/dyninv/create-ct.py
+
+
+###Integrations
+
+###Callbacks
+
+
+
 ##Modules seen
 * -m ping
 * -m command -a "date"		>> Only accepts ONE command
@@ -186,4 +225,4 @@ geerlinguy.redis
 
 ##DUDAS
 * Paso de variable en CLI: -e "boniclo:patata": ¿¿--extra-vars "key=value"??
-* Usar
+* Instalar GO bien y ejecutar go tool present
