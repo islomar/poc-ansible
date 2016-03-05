@@ -134,6 +134,13 @@ host2 http_port=303 maxRequestsPerChild=909
 
 `ansible-playbook task3-first-step.yml -t "updateapp" -e "boniclo:patata"`
 
+Passing variables on the command line:
+http://docs.ansible.com/ansible/playbooks_variables.html#passing-variables-on-the-command-line
+
+
+##Roles
+
+
 ##Modules seen
 * -m ping
 * -m command -a "date"		>> Only accepts ONE command
@@ -141,3 +148,7 @@ host2 http_port=303 maxRequestsPerChild=909
 * -m apt -a "xxx"
 * -m user -a "user=<username>"
 
+
+##DUDAS
+* Paso de variable en CLI: -e "boniclo:patata"
+* Usar
