@@ -25,9 +25,11 @@
     file:
         path=/var/www/html/index.html state=absent
 
-  #- name: Copy index file
-  #  become: yes
-  #  template:
+  - name: Copy index file
+    become: yes
+    template:
+      src=index.php
+      dest=/var/www/html/
 
 
 - hosts: databases

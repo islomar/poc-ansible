@@ -126,6 +126,9 @@ host2 http_port=303 maxRequestsPerChild=909
 `ansible-playbook task3-first-step.yml`				>> nothing happens (changed=0)
 
 
+`ansible frontends -m command -a "ls -la /var/www/html"`
+
+
 ##Modules seen
 * -m ping
 * -m command -a "date"		>> Only accepts ONE command
