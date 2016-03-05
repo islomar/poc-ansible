@@ -139,6 +139,9 @@ http://docs.ansible.com/ansible/playbooks_variables.html#passing-variables-on-th
 
 
 ##Roles
+https://github.com/nestorsalceda/taller-ansible
+
+wget http://172.16.42.78:8000/debian-jessi64.box
 
 
 ##Modules seen
