@@ -140,13 +140,20 @@ http://docs.ansible.com/ansible/playbooks_variables.html#passing-variables-on-th
 
 ##Roles
 https://github.com/nestorsalceda/taller-ansible
-Objetivo: separar todo un playbook completo en diversos roles
 
-wget http://172.16.42.78:8000/debian-jessi64.box
+###exercise1/task1
+* Objetivo: separar todo un playbook completo en diversos roles
+* wget http://172.16.42.78:8000/debian-jessi64.box
+* El "---" al principio del playbook no es obligatorio.
 
-El "---" al principio del playbook no es obligatorio.
+###exercise1/task2
+* Usar variables en la plantilla nginx.conf.j2, para poder parametrizar algunos valores.
+* Lo que está en /defaults/main.yml pasa a la plantilla (e.g. nginx_worker_processes)
 
-
+##exercise1/task3 (handlers)
+* OBJETIVO: No queremos que nginx se reinicie cada vez que se provisione.
+* Usamos el "notify:"
+* /exercise1/task3/roles/nginx/tasks/main.yml
 
 ##Modules seen
 * -m ping
