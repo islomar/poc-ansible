@@ -153,7 +153,28 @@ https://github.com/nestorsalceda/taller-ansible
 ##exercise1/task3 (handlers)
 * OBJETIVO: No queremos que nginx se reinicie cada vez que se provisione.
 * Usamos el "notify:"
-* /exercise1/task3/roles/nginx/tasks/main.yml
+* /roles/nginx/tasks/main.yml apunta al handler definido bajo /roles/nginx/handlers
+
+##exercise1/task4 (overwrite)
+overwrite de la configuración del rol: lo que escribes en el playbook principal (site.yml) sobrescribe a lo que esté en el rol
+
+##exercise2
+pre-task
+post-task
+
+##exercise3
+Ansible Galaxy: scaffolding para los roles.
+Es un marketplace de roles.
+`ansible-galaxy search redis`
+`
+geerlinguy.redis
+
+
+##Ansible Vault
+* NO subir contraseñas.
+* `ansible-vault create foo.yml`	>> mysql_password = patata
+* `ansible-vault view foo.yml`
+
 
 ##Modules seen
 * -m ping

@@ -4,6 +4,6 @@
     - backports
     - apt
     - role: nginx
-      nginx_worker_connections:
+      nginx_worker_connections: 13
 
 
