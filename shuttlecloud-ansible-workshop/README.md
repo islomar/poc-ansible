@@ -102,3 +102,34 @@ host2 http_port=303 maxRequestsPerChild=909
 2. Run the **user* module:    `ansible all -m user -a "name=frontenduser" -become`
 3. Estamos definiendo el estado que esperamos, NO una orden de creación/borrado/whatever. En este caso, decimos que esperamos que exista el usuario 'frontenduser': si no existe, lo crea, y si existe... no hace nada.
 4. Cuando se ejecuta la primera vez, devuelve "changed=true", indicando que en esa ejecución ha creado el usuario. Si se vuelve a ejecutar, devolverá "changed=false", indicando que el usuario ya existía y por tanto no ha tenido que ejecutar nada.
+
+
+##Task3
+* **Modules** are used to control system resources
+  * http://docs.ansible.com/ansible/modules.html
+  * Ansible ships with a number of modules (called the ‘module library’) that can be executed directly on remote hosts or through Playbooks.
+* **Play**: conjunto de hosts contra un conjunto de acciones (it maps tasks to roles).
+* **Playbook** fichero con varias plays. Descriptions of the desired state of your systems.
+  * http://docs.ansible.com/ansible/playbooks_intro.html
+
+
+* Tasks
+  * Ver task3-first-step.yml
+  * hosts
+  * vars:	se pueden definir variables de ejecución para esta play. También se puede poner una referencia a un fichero de variables
+  * name: nombre descriptivo, simplemente para saber en qué punto se está en cada momento.
+  * become: para poder ser súperusuario. Podría ir en otro sitio, por ejemplo arriba del fichero, bajo hosts, si queremos usarlo para todos los plays del playbook.
+  * módulo a ejecutar. Permite variable **with_items**
+
+`ansible frontend1 -m shell -a "git --version"`		>> git does NOT exist
+`ansible-playbook task3-first-step.yml`				>> git gets installed (changed=1)
+`ansible-playbook task3-first-step.yml`				>> nothing happens (changed=0)
+
+
+##Modules seen
+* -m ping
+* -m command -a "date"		>> Only accepts ONE command
+* -m shell -a "command1 && command2"
+* -m apt -a "xxx"
+* -m user -a "user=<username>"
+

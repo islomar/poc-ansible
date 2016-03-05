@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  vars:
+    boniclo: piticli
 
   tasks:
   - name: Install base common packages

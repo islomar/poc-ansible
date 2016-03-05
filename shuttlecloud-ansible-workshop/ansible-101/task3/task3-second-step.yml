@@ -15,17 +15,26 @@
     become: yes
     apt: name={{item}} state=present update_cache=yes cache_valid_time=3600
     with_items:
+       - git
+       - memcached
+       - apache2
+       - libapache2-mod-php5
   
-  - name: Delete default index file
-    become: yes
-    file:
+  #- name: Delete default index file
+  #  become: yes
+  #  file:
 
-  - name: Copy index file
-    become: yes
-    template:
+  #- name: Copy index file
+  #  become: yes
+  #  template:
 
 
 - hosts: databases
 
   tasks:
   - name: Install database base packages
+    become: yes
+    apt: name={{item}} state=present update_cache=yes cache_valid_time=3600
+    with_items:
+       - git
+       - redis-server
