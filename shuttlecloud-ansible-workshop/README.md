@@ -140,8 +140,12 @@ http://docs.ansible.com/ansible/playbooks_variables.html#passing-variables-on-th
 
 ##Roles
 https://github.com/nestorsalceda/taller-ansible
+Objetivo: separar todo un playbook completo en diversos roles
 
 wget http://172.16.42.78:8000/debian-jessi64.box
+
+El "---" al principio del playbook no es obligatorio.
+
 
 
 ##Modules seen
@@ -153,5 +157,5 @@ wget http://172.16.42.78:8000/debian-jessi64.box
 
 
 ##DUDAS
-* Paso de variable en CLI: -e "boniclo:patata"
+* Paso de variable en CLI: -e "boniclo:patata": ¿¿--extra-vars "key=value"??
 * Usar
