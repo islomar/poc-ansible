@@ -90,4 +90,15 @@ host2 http_port=303 maxRequestsPerChild=909
 * You've been noticed about the Heartbleed Bug and you need to update openssl package in all of them:
 `ansible all -a "apt-get update" -b`
 `ansible all -a "apt-get install --only-upgrade libssl1.0.0" -b`
-`ansible all -a "apt-get update && apt-get install --only-upgrade libssl1.0.0" -b`
+`ansible all -m shell -a "apt-get update && apt-get install --only-upgrade libssl1.0.0" -b`
+`ansible all -m apt -a 'update_cache=yes name=openssl state=latest' --become`
+
+* Use of shell:
+`ansible app-servers -m shell -a "echo $TERM"
+
+* Module for managing user accounts: http://docs.ansible.com/ansible/user_module.html
+* In order to create a user for a role:
+1. Create a file <groupName>.yml under group_vars folder so that is used when running each host, 
+2. Run the **user* module:    `ansible all -m user -a "name=frontenduser" -become`
+3. Estamos definiendo el estado que esperamos, NO una orden de creación/borrado/whatever. En este caso, decimos que esperamos que exista el usuario 'frontenduser': si no existe, lo crea, y si existe... no hace nada.
+4. Cuando se ejecuta la primera vez, devuelve "changed=true", indicando que en esa ejecución ha creado el usuario. Si se vuelve a ejecutar, devolverá "changed=false", indicando que el usuario ya existía y por tanto no ha tenido que ejecutar nada.

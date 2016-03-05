@@ -21,7 +21,7 @@ Inventory file is the key when you want to manage multiple hosts at once. Here y
 4. Extra ball:
     * How would you create a user for each role of server (frontuser,backuser and databaseuser).
 
-    You should include users name on group_vars/role.yml so that is used when running each host and with the user module run:
+    You should include users name on group_vars/role.yml so that is used when running each host, and with the **user* module run:
     ansible all -m user -a "name={{ user }}" -become
 
     As you can see, using modules gives you a better feedback of the execution and are a good way to idempotence as far as you describe states more than instructions. You can take a look to all available modules at:
