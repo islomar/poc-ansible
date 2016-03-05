@@ -20,9 +20,10 @@
        - apache2
        - libapache2-mod-php5
   
-  #- name: Delete default index file
-  #  become: yes
-  #  file:
+  - name: Delete default index file
+    become: yes
+    file:
+        path=/var/www/html/index.html state=absent
 
   #- name: Copy index file
   #  become: yes
