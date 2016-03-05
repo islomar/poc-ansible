@@ -1,6 +1,8 @@
 ---
 - hosts: all
   gather_facts: no
+  vars:
+    boniclo: piticli
 
   tasks:
   - name: Install base common packages
@@ -27,10 +29,12 @@
         path=/var/www/html/index.html state=absent
 
   - name: Copy index file
+    tags:
+      - updateapp
     become: yes
     template:
       src=index.php
-      dest=/var/www/html/
+      dest=/var/www/html/index.php
 
 
 - hosts: databases

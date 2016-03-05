@@ -132,6 +132,7 @@ host2 http_port=303 maxRequestsPerChild=909
  * Por defecto, hace un `ansible <hostname> -m setup`, que pilla toda la información de la máquina. Si pones gather_facts:no, ya no lo hace.
  * Se suele poner **no** para que vaya más rápido. Si no lo pones, hace el gather data en el [setup]
 
+`ansible-playbook task3-first-step.yml -t "updateapp" -e "boniclo:patata"`
 
 ##Modules seen
 * -m ping

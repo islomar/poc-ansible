@@ -1,3 +1,3 @@
-Hello CAS2015 attendants!
+Hello caracola attendants!
 <br>
 Today is: <?php echo date('l');?>
