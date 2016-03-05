@@ -4,15 +4,15 @@ backend1 ansible_host=10.0.0.3
 
 database1 ansible_host=10.0.0.4
 
-[app-servers]
+[app-servers:children]
+frontends
+backends
+
+[frontends]
 frontend1
+
+[backends]
 backend1
 
-[frontend-servers]
-frontend1
-
-[backend-servers]
-backend1
-
-[database-servers]
+[databases]
 database1

@@ -68,10 +68,11 @@ Ticketbis: they use Ansible only for deployments.
 ##Task2
 ###Inventory
 http://docs.ansible.com/ansible/intro_inventory.html
-Es mejor sacar las variables a otro sitio, no mezclarlo todo en el inventario.
-The things in brackets are group names.
-* **group_vars**: ficheros de variables de los grupos. El fichero bajo /group_vars/ tendrá el nombre de un grupo (u all), y las variables definidas dentro se asignan a él.
-* **host_vars**: fichero de variables de los hosts. El fichero bajo /host_vars/ tendrá el nombre de un host, y las variables definidas dentro se asignan a él.
+* Es mejor sacar las variables a otro sitio, no mezclarlo todo en el inventario.
+* The things in brackets are group names.
+* It is also possible to make groups of groups using the :children suffix. 
+  * **group_vars**: ficheros de variables de los grupos. El fichero bajo /group_vars/ tendrá el nombre de un grupo (u all), y las variables definidas dentro se asignan a él.
+  * **host_vars**: fichero de variables de los hosts. El fichero bajo /host_vars/ tendrá el nombre de un host, y las variables definidas dentro se asignan a él.
 
 `
 [webservers]
@@ -85,3 +86,8 @@ Host variables:
 host1 http_port=80 maxRequestsPerChild=808
 host2 http_port=303 maxRequestsPerChild=909
 `
+
+* You've been noticed about the Heartbleed Bug and you need to update openssl package in all of them:
+`ansible all -a "apt-get update" -b`
+`ansible all -a "apt-get install --only-upgrade libssl1.0.0" -b`
+`ansible all -a "apt-get update && apt-get install --only-upgrade libssl1.0.0" -b`
